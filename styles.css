@@ -1,0 +1,48 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navBar {
+  background-color: black;
+  color: white;
+}
+
+#searchInput {
+  padding: 5px 10px;
+}
+
+#searchButton {
+  background-color: rgb(82, 82, 82);
+  color: white;
+  padding: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+#searchButton:hover {
+  background-color: white;
+  color: black;
+}
+
+#filterButton {
+  background-color: rgb(82, 82, 82);
+  color: white;
+  border-radius: 8px;
+  padding: 5px 20px;
+  margin: 30px;
+}
+
+#userIdMenu {
+  border: 2px solid rgb(82, 82, 82);
+  background-color: rgb(82, 82, 82);
+}
+ 
+#dropdownMenu {
+  color: white;
+}
+
+#dropdownMenu:hover {
+  color: black;
+}
