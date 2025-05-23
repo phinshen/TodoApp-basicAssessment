@@ -46,3 +46,7 @@
 #dropdownMenu:hover {
   color: black;
 }
+
+.table-header {
+  padding: 20px;
+}

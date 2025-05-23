@@ -1,8 +1,12 @@
 
 // -------------------------fetch data from API function------------------
+let allData = [];
+
 async function fetchData() {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
   const data = await response.json();
+
+allData = data;
   // -----------------------------getting user Id from API--------------------------
   const userIds = [];
 
@@ -14,7 +18,6 @@ async function fetchData() {
     }
   } 
 
-  console.log(userIds);
   // ------------------------getting dropdown selection from API------------------------
   // ------------------------linking it to html-----------------------
   const menu = document.getElementById("userIdMenu"); //getting dropdown menu container
@@ -27,10 +30,40 @@ async function fetchData() {
       User ID: ${id}</a>`; //Add a related link to specific User ID, link to UPDATE
     menu.appendChild(li);
   });
+
+  displayData(allData);
 }
-// ---------------------------------content data function-----------------------------------
+// ---------------------------------display content data function-----------------------------------
 function displayData(data) {
   const container = document.getElementById('todoContainer');
+  container.innerHTML = ''; // clear previous content
+
+  const table = document.createElement('table');
+  table.className = 'table table-striped';
+
+  const thead = document.createElement('tr');
+  thead.innerHTML = `
+    <tr>
+      <th class="th-header">User ID</th>
+      <th class="th-header">Title</th>
+    </tr>
+    `;
+
+  const tbody = document.createElement('tbody');
+  data.forEach(item => {
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `  
+      <td>${item.userId} :</td>
+      <td>${item.title}</td>
+      `;
+
+      tbody.appendChild(tr);
+  });
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  container.appendChild(table);
 }
 
 
