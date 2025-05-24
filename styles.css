@@ -32,6 +32,7 @@
   border-radius: 8px;
   padding: 5px 20px;
   margin: 30px;
+  margin-left: 50px;
 }
 
 #userIdMenu {
@@ -47,6 +48,7 @@
   color: black;
 }
 
-.table-header {
-  padding: 20px;
+.th-header {
+  padding: 10px;
+  border-bottom: 2px solid black;
 }

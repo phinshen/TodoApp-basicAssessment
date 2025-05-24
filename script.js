@@ -43,10 +43,8 @@ function displayData(data) {
 
   const thead = document.createElement('tr');
   thead.innerHTML = `
-    <tr>
       <th class="th-header">User ID</th>
       <th class="th-header">Title</th>
-    </tr>
     `;
 
   const tbody = document.createElement('tbody');
