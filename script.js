@@ -5,8 +5,7 @@ let allData = [];
 async function fetchData() {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
   const data = await response.json();
-
-allData = data;
+  allData = data;
   // -----------------------------getting user Id from API--------------------------
   const userIds = [];
 
@@ -24,11 +23,19 @@ allData = data;
   menu.innerHTML = ''; // clear existing item from menu to avoid duplicate
 
   userIds.forEach(id => {
-    const li = document.createElement("li"); //creates a <li> element in HTML
-    li.innerHTML = `
-      <a class="dropdown-item" id="dropdownMenu" href="#">
-      User ID: ${id}</a>`; //Add a related link to specific User ID, link to UPDATE
-    menu.appendChild(li);
+   const li = document.createElement("li");
+   const a = document.createElement("a");
+   a.className = "dropdown-item";
+   a.href = "#";
+   a.textContent = `User ID: ${id}`;
+
+   a.addEventListener('click', () => {
+    document.getElementById("selectedUserId").textContent = `User ID: ${id}`;
+    filterData();
+   });
+
+   li.appendChild(a);
+   menu.appendChild(li);
   });
 
   displayData(allData);
@@ -64,27 +71,26 @@ function displayData(data) {
   container.appendChild(table);
 }
 
+//----------------------linking filter button to display data content-------------------
+document.getElementById('filterButton').addEventListener('click', filterData);
 
+function filterData() {
+  const selectedId = document.getElementById('selectedUserId').textContent;
+  const userId = parseInt(selectedId.replace('User ID: ', ''));
+
+ if (!isNaN(userId)) {
+  const filteredData = allData.filter(item => item.userId === userId);
+  displayData(filteredData);
+ } else {
+  displayData(allData);
+ }
+
+}
 
 // -----------------------search button function-------------------------
 //---incomplete
 function searchButton() {
   const search = document.getElementById("searchInput").value.toLowerCase();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 fetchData();
