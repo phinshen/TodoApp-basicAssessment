@@ -48,7 +48,13 @@
   color: black;
 }
 
+.dropdown-item {
+  color: white;
+}
+
 .th-header {
   padding: 10px;
   border-bottom: 2px solid black;
+  position: sticky;
+  top: 0;
 }

@@ -47,13 +47,15 @@ function displayData(data) {
 
   const table = document.createElement('table');
   table.className = 'table table-striped';
-
-  const thead = document.createElement('tr');
-  thead.innerHTML = `
+  // ------------------------create table head---------------------
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  headerRow.innerHTML = `
       <th class="th-header">User ID</th>
       <th class="th-header">Title</th>
     `;
-
+    thead.appendChild(headerRow);
+  // ----------------------create table body--------------------
   const tbody = document.createElement('tbody');
   data.forEach(item => {
     const tr = document.createElement('tr');
@@ -85,12 +87,6 @@ function filterData() {
   displayData(allData);
  }
 
-}
-
-// -----------------------search button function-------------------------
-//---incomplete
-function searchButton() {
-  const search = document.getElementById("searchInput").value.toLowerCase();
 }
 
 fetchData();
