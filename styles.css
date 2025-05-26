@@ -2,21 +2,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.page-wrapper {
-  flex: 1;
-}
-
 #navBar {
   background-color: black;
   color: white;
@@ -63,13 +48,7 @@ body {
   color: black;
 }
 
-.dropdown-item {
-  color: white;
-}
-
 .th-header {
   padding: 10px;
   border-bottom: 2px solid black;
-  position: sticky;
-  top: 0;
 }
